@@ -51,7 +51,7 @@
 <h1></h1>
 <br/><br/>
 <div align="center">
-<form action="buscar.php" method="post" class="search" style="margin-left:10px;max-width:600px">
+<form action="php/buscar.php" method="post" class="search" style="margin-left:10px;max-width:600px">
       <input type="text" name="articulo" id="articulo" autocomplete="off"
              placeholder="Buscar articulo"/>
       <button type="submit" value="Buscar"><i class="fa fa-search"></i></button>
@@ -62,7 +62,7 @@
         $("#articulo").typeahead({
             source: function (query, resultado) {
                 $.ajax({
-                    url: "accion.php",
+                    url: "php/accion.php",
                     type: "POST",
                     dataType: "json",
                     data: {query: query},
@@ -80,8 +80,9 @@
 </html>
 <?php
 @session_start();
-require_once 'autoloader.php';
-include "conexion.php";
+require_once 'php/autoloader.php';
+include "php/conexion.php";
+set_cache_location('cache');
 //Actualiza la informacion
 
 $query = "SELECT * from sitios";
@@ -125,7 +126,7 @@ while($row = $result->fetch_assoc()){
     </div>
     <br>
     <div align="center">
-      <input type="button" value="Generar Excel" onclick="location.href='generarDocXls.php'">
+      <input type="button" value="Generar Excel" onclick="location.href='php/generarDocXls.php'">
     </div>
     <br>
     <br>
