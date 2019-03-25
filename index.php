@@ -82,7 +82,6 @@
 @session_start();
 require_once 'php/autoloader.php';
 include "php/conexion.php";
-set_cache_location('cache');
 //Actualiza la informacion
 
 $query = "SELECT * from sitios";
